@@ -27,5 +27,5 @@ script:
        travis_terminate 1
       else
         echo "Helm Lint SUCCESS for ${REPO_DIR}/stable/${CHART}"
-      end
+      fi
      done
