@@ -20,9 +20,12 @@ install:
 script:
   # Check charts format
   - >
-     for dir in `ls ${REPO_DIR}/stable`; do
-      helm lint ${REPO_DIR}/stable/$dir
+     for CHART in $(ls ${REPO_DIR}/stable); do
+      helm lint ${REPO_DIR}/stable/${CHART}
       if [ $? != 0 ]; then
+       echo "Helm Lint FAILURE for ${REPO_DIR}/stable/${CHART}"
        travis_terminate 1
+      elif
+        echo "Helm Lint SUCCESS for ${REPO_DIR}/stable/${CHART}"
       fi
      done
