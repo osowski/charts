@@ -16,6 +16,8 @@ install:
   - tar xzfv ${HELM_TGZ}
   - PATH=`pwd`/linux-amd64/:$PATH
   - helm init --client-only
+  # Installig pip deps
+  - sudo pip install yamllint=="${YAMLLINT_VERSION}"
 
 script:
   # Check charts format
@@ -29,3 +31,9 @@ script:
         echo "Helm Lint SUCCESS for ${REPO_DIR}/stable/${CHART}"
       fi
      done
+  - yamllint -c .yamllint.yml -s $(find . -type f -name "Chart.yaml")
+  - yamllint -c .yamllint.yml -s $(find . -type f -name "values.yaml")
+
+after_success:
+  - > 
+    echo "POST-SUCCESS will now package and update the `repo/stable` index and contents."
