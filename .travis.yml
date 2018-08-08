@@ -25,7 +25,7 @@ script:
       if [ $? != 0 ]; then
        echo "Helm Lint FAILURE for ${REPO_DIR}/stable/${CHART}"
        travis_terminate 1
-      elif
+      else
         echo "Helm Lint SUCCESS for ${REPO_DIR}/stable/${CHART}"
-      fi
+      end
      done
