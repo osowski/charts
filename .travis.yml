@@ -34,4 +34,4 @@ script:
 
 after_success:
   - > 
-    echo "POST-SUCCESS will now package and update the `repo/stable` index and contents."
+    echo "POST-SUCCESS will now package and update the 'repo/stable' index and contents."
