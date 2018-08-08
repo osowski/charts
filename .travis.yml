@@ -31,8 +31,6 @@ script:
         echo "Helm Lint SUCCESS for ${REPO_DIR}/stable/${CHART}"
       fi
      done
-  - yamllint -c .yamllint.yml -s $(find . -type f -name "Chart.yaml")
-  - yamllint -c .yamllint.yml -s $(find . -type f -name "values.yaml")
 
 after_success:
   - > 
