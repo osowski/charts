@@ -18,7 +18,7 @@ jobs:
     - name: Bump Versions
       uses: remorses/bump-version@v8
       env:
-       GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         version_file: ./VERSION
     - name: Get latest version
