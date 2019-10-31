@@ -16,7 +16,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
     - name: Bump Versions
-      uses: remorses/bump-version@v8
+      uses: remorses/bump-version@js
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
